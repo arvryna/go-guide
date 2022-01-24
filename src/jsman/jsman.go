@@ -3,7 +3,7 @@ package jsman
 import "fmt"
 
 type JsonParser struct {
-	data           []byte
+	Data           []byte
 	useDefaultData bool
 }
 
@@ -18,9 +18,9 @@ func (t JsonParser) defaultTestData() []byte {
 
 // If you use type of pointer like below
 func (t *JsonParser) SetJSON(jsonStr string) {
-	t.data = []byte(jsonStr)
+	t.Data = []byte(jsonStr)
 }
 
-func (t JsonParser) printData() {
-	fmt.Println(t.data)
+func (t JsonParser) PrintData() {
+	fmt.Println(t.Data)
 }

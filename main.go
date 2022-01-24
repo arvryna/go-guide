@@ -1,14 +1,13 @@
 package main
 
 import (
-	"github.com/arvryna/go-guide/jsman"
+	"github.com/arvryna/go-guide/src/jsman"
 )
 
 func main() {
-	jsman.CheckRef()
-	// var j jsman.JsonParser = jsman.JsonParser{
-	// 	data: []byte(`{"uname":"arv"}`),
-	// }
-	// j.SetJSON(`{"zoo1111111111":"mkv"}`)
-	// j.printData()
+	var j jsman.JsonParser = jsman.JsonParser{
+		Data: []byte(`{"uname":"arv"}`),
+	}
+	j.SetJSON(`{"zoo1111111111":"mkv"}`)
+	j.PrintData()
 }
