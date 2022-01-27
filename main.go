@@ -7,7 +7,7 @@ import (
 )
 
 type Contact struct {
-	FirstName string `json:"firstName"`
+	FirstName string `json:"FirstName"`
 	LastName  string `json:"lastName"`
 	Pin       int    `json:"pin"`
 }
@@ -17,8 +17,13 @@ func main() {
 		JsonStr: `{"firstName":"arv", "lastName": "ryna", "pin": 17643}`,
 	}
 
+	// Unpacking
 	c := Contact{}
 	j.Unpack(&c)
+	fmt.Printf("Unmarshalled data: %#v \n\n", c)
 
-	fmt.Printf("Unmarshalled data: %#v", c)
+	// Packing
+	c.FirstName = "Ash"
+	fmt.Printf("Marshalled data: ")
+	fmt.Println(j.Pack(&c))
 }

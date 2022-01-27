@@ -13,7 +13,12 @@ type JsonParser struct {
 	useDefaultData bool
 }
 
-func (t *JsonParser) Pack() {
+func (t *JsonParser) Pack(i interface{}) (string, error) {
+	data, err := json.Marshal(i)
+	if err != nil {
+		return "", err
+	}
+	return string(data[:]), nil
 }
 
 // Unpack the json string into "Any" interface
