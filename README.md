@@ -14,7 +14,10 @@
 - JSON serialization and deserialization in go is analogously marshalling and unmarshalling
 - NOTE:  "Unmarshal will only set exported fields of the struct.", first letter must be capital
 - while marshalling you can provide rules on how mashallelling needs to be done via, backsticks eg, `json:fieldName,fieldtype` 
-- marshalling and unmarshalling code [here](https://github.com/arvryna/go-guide/blob/main/src/jsman/jsman.go)
+- marshalling and unmarshalling code [here](https://github.com/arvryna/go-guide/blob/main/internal/jsman/jsman.go)
+
+# Concurrency primitives
+- To wait for multiple goroutines to finish, we can use a wait group code [here](https://github.com/arvryna/go-guide/blob/main/internal/concur/sync.go)
 
 # Context:
 ``` [client] -> | [middlewere] -> [app layer] -> [DB Layer] | ```
@@ -26,6 +29,13 @@
 
 # Printing strings:
 - ``` fmt.printf("%#v", struct) // print any struct ```
+
+# Debugging:
+
+> cannot use wg (type sync.WaitGroup) as type *sync.WaitGroup in argument to increment
+
+- Problem: Passing value to a function that expects reference
+- Fix: Use &wg to pass reference
 
 # Code style:
 
