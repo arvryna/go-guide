@@ -19,6 +19,11 @@
 # Concurrency primitives
 - To wait for multiple goroutines to finish, we can use a wait group code [here](https://github.com/arvryna/go-guide/blob/main/internal/concur/sync.go)
 
+- Mutex Lock = Mutually exclusive lock:
+  - Available in sync package, when used, the critical section of the code is allowed for only one go-routine
+  - Either reader / writer will wait until lock is freed, they wait in a queue will be served FIFO
+- RWMutex Lock = This lock allows access to critical section of code only one writer but any number of readers
+
 # Context:
 ``` [client] -> | [middlewere] -> [app layer] -> [DB Layer] | ```
 
@@ -36,6 +41,11 @@
 
 - Problem: Passing value to a function that expects reference
 - Fix: Use &wg to pass reference
+
+> Deadlock
+
+- Make sure concurrency primitives are used properly in code, make sure you call Unlock(), wg.Wait(), wg.Close().
+  appropriate book-keeping is required to ensure we call the right constructs at the right time. usage of defer is encouraged. 
 
 # Code style:
 
