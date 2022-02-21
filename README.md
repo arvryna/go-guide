@@ -100,6 +100,9 @@ signal.Notify(sigListen, syscall.SIGINT, syscall.SIGTERM)
 // Add code for graceful shutdown here
 ```
 
+# Working with docker
+An example of a simple hw app with a dockerfile can be found here `samples/greet`
+
 # Printing strings:
 - ``` fmt.printf("%#v", struct) // print any struct ```
 
