@@ -85,9 +85,20 @@ fetch(&data)
 - Use race flag to detect race conditions in the program
 ``` go run -race main.go ```
 
-How race works under the hood ? 
-- In runtime, go allocates a small amount of memory (called as shadow memory) to each variables created by the program and checks the reads and writes by interwining code and there by identify the race.
-- ref:[video](https://youtu.be/5erqWdlhQLA)
+How race flag works under the hood ? 
+- In runtime, go allocates a small amount of memory (called as shadow memory) to each variables created by the program and checks the reads and writes by interwining code and there by identify the race. ref:[video](https://youtu.be/5erqWdlhQLA)
+
+# Handling signals (SIGINT, SIGTERM) for graceful shutdown
+You can add these lines at the end of the main function, this helps,
+1) Wait for all your go routines to complete
+2) To do last minute clean-up for the process, eg: to close DB connnections, flush data to disk etc.,
+
+```
+sigListen := make(chan os.Signal, 1)
+signal.Notify(sigListen, syscall.SIGINT, syscall.SIGTERM)
+<-sigListen
+// Add code for graceful shutdown here
+```
 
 # Printing strings:
 - ``` fmt.printf("%#v", struct) // print any struct ```
