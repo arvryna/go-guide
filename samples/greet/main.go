@@ -23,5 +23,5 @@ func main() {
 	signal.Notify(stopChan, syscall.SIGINT, syscall.SIGTERM, syscall.SIGABRT)
 	<-stopChan
 
-	fmt.Println("Graceful shutdown")
+	fmt.Println("Perform last minute cleanup!!!...")
 }

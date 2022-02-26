@@ -1,7 +1,11 @@
 #! /bin/bash
 
 echo "Package app in docker container ..."
-docker build -t greet .
+docker build -t goguide/greeter .
 
-echo "Run the container ..."
-docker run --rm greet
+# To run the container directly..
+# echo "Run the container ..."
+# docker run --rm goguide/greeter
+
+echo "Lauch kubernetes"
+kubectl apply -f ./greeter.yaml

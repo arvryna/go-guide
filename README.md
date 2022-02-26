@@ -101,7 +101,7 @@ signal.Notify(sigListen, syscall.SIGINT, syscall.SIGTERM)
 ```
 
 # Working with docker
-An example of a simple hw app with a dockerfile can be found here `samples/greet`
+An example of a simple hw app with a dockerfile can be found here `samples/greeter`
 
 # Printing strings:
 - ``` fmt.printf("%#v", struct) // print any struct ```
@@ -112,3 +112,6 @@ An example of a simple hw app with a dockerfile can be found here `samples/greet
 - [Google go's guide](https://github.com/golang/go/wiki/CodeReviewComments)
 - [Effective go](https://go.dev/doc/effective_go)
 - [Kubernets go coding convention](https://www.kubernetes.dev/docs/guide/coding-convention/)
+
+# Best practices:
+- Use defer whenever possible
