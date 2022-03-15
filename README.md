@@ -38,6 +38,7 @@ func(s string){fmt.print(s)}("Hello")
 NOTE: capturing the state means that, the closure will somehow associate that specific closure with the variables passed to it. In the above example, this specific instance of a function is linked with the variable passed to it. It becomes particularly important when enclosing closures in loops. So each instance of closure will be given a unique reference to variable s.
 
 # Pointers
+- Share memory by pointer
 - Map by default is reference in go
 - Passing pointer by reference example
 
@@ -80,6 +81,13 @@ fetch(&data)
 - If all goroutines are deadlocked, go raises panic to kill program, but if there is partial failure of go-routines, the program 
   continues to function but may behave uncertain.
 
+# Interface:
+- They define behaviour of an Object, by expecting presence of certain methods.
+- This helps us to implement OOP in go. 
+- passing interface as parameter provides a clean way to generalize and allow us to pass different kinds of 
+  objects
+- See example here:  https://github.com/arvryna/sled/blob/main/internal/service/task.go
+
 # Go Tools:
 > Detecting race conditions ?
 - Use race flag to detect race conditions in the program
@@ -100,6 +108,11 @@ signal.Notify(sigListen, syscall.SIGINT, syscall.SIGTERM)
 // Add code for graceful shutdown here
 ```
 
+# Interceptors
+Block of code that you want to execute before it executes a handler of web request for example. This works similar
+to constuct like before_action, after_action in rails for example. 
+
+
 # Working with docker
 An example of a simple hw app with a dockerfile can be found here `samples/greeter`
 
@@ -112,6 +125,3 @@ An example of a simple hw app with a dockerfile can be found here `samples/greet
 - [Google go's guide](https://github.com/golang/go/wiki/CodeReviewComments)
 - [Effective go](https://go.dev/doc/effective_go)
 - [Kubernets go coding convention](https://www.kubernetes.dev/docs/guide/coding-convention/)
-
-# Best practices:
-- Use defer whenever possible

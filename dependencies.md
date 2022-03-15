@@ -8,3 +8,7 @@
 - it can watch for config file changes and also notify the go-process
 - you can marshal/unmarshal using mapstructure
 - `go get github.com/spf13/viper`
+
+# ORM
+- gorm is a popular ORM
+- to connect with postgres, driver is required additionally
