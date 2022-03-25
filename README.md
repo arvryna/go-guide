@@ -2,6 +2,9 @@
 - Guide is organized with explanations and short snippets
 - NOTE: If mistakes found, please make a PR or add comments so that i can fix them.
 
+# Simple program examples in Go:
+- Converting markdown file to HTML [here](https://github.com/arvryna/go-guide/blob/main/cmd/mdreader.go)
+
 # Go Packages and its rules
 - Naming of package: should not be camel/snakecase, same as the directory name
 - Each directory can only one package, but many files (each bearing the same package name)
@@ -112,12 +115,16 @@ signal.Notify(sigListen, syscall.SIGINT, syscall.SIGTERM)
 Block of code that you want to execute before it executes a handler of web request for example. This works similar
 to constuct like before_action, after_action in rails for example. 
 
+# STDIN and STDOUT
+STDIN:  fmt.Scanln(&n)
+STDOUT: use fmt.Printf("\n") // this is print with format, you don't need to use fmt.Sprintf inside again
 
 # Working with docker
 An example of a simple hw app with a dockerfile can be found here `samples/greeter`
 
 # Printing strings:
 - ``` fmt.printf("%#v", struct) // print any struct ```
+
 
 # Code style:
 
