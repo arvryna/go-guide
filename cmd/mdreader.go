@@ -26,11 +26,6 @@ func main() {
 		panic(err)
 	}
 
-	// create a output file directory to store the generated HTML files
-	// if err = os.Mkdir("out", os.ModePerm); err != nil {
-	// 	panic(err)
-	// }
-
 	html := markdown.ToHTML(data, nil, nil)
 
 	if err = ioutil.WriteFile(htmlOutFileName, html, 0644); err != nil {
